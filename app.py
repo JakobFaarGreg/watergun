@@ -13,5 +13,12 @@ df = df.drop(df["volumetric_flow_rate"].idxmax())
 df = df.drop(df["volumetric_flow_rate"].idxmin())
 
 # Print mean and persist table
-pu.pretty_print(str.format("Volumetric Flow Rate: {}", df["volumetric_flow_rate"].mean()))
+volumetric_flow_rate = df["volumetric_flow_rate"].mean()
+pu.pretty_print(str.format("Volumetric Flow Rate: {}", volumetric_flow_rate))
 df.to_csv("volumetric_flow_rate.csv", index=False)
+
+# Calculate Mass Flow Rate
+MASS_DENSITY_OF_WATER = 1000
+mass_flow_rate = volumetric_flow_rate * MASS_DENSITY_OF_WATER
+pu.pretty_print(str.format("Mass Flow Rate: {}", mass_flow_rate))
+
