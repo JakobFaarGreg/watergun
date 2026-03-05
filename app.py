@@ -1,5 +1,5 @@
 # This scripts calculates the Volumetric Flow Rate of a watergun
-import pandas as pd
+import pandas as pd # type: ignore
 import print_utils as pu
 
 df = pd.read_csv("raw_water_time.csv")
