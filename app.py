@@ -12,13 +12,13 @@ MILLILITER: str = "milliliter"
 SECONDS: str = "seconds"
 
 diameter_in_millimeter: float = 1
-diameter_in_meter: float = diameter_in_millimeter / 1000
+diameter_in_meter: float = diameter_in_millimeter / 1e3
 cross_sectional_area_in_meter: float = math.pi * math.pow(diameter_in_meter / 2, 2)
 # TODO: follow the thread, i figure out how to get to velocity, and from there to force.
 
 
 # Calculate VFR per row
-df[CUBIC_METER] = df[MILLILITER] * 0.000001
+df[CUBIC_METER] = df[MILLILITER] * 1e-6
 df[VOLUMETRIC_FLOW_RATE] = df[CUBIC_METER] / df[SECONDS]
 
 # Remove outliers and calculate aritmetic mean
@@ -32,7 +32,7 @@ pu.pretty_print(str.format("Volumetric Flow Rate: {}", volumetric_flow_rate))
 df.to_csv("volumetric_flow_rate.csv", index=False)
 
 # Calculate Mass Flow Rate
-MASS_DENSITY_OF_WATER: int = 1000
+MASS_DENSITY_OF_WATER: int = 1e3
 mass_flow_rate = volumetric_flow_rate * MASS_DENSITY_OF_WATER
 pu.pretty_print(str.format("Mass Flow Rate: {}", mass_flow_rate))
 
