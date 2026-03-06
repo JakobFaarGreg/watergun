@@ -31,7 +31,7 @@ df = df.drop(df[VOLUMETRIC_FLOW_RATE].idxmax())
 df = df.drop(df[VOLUMETRIC_FLOW_RATE].idxmin())
 
 volumetric_flow_rate = df[VOLUMETRIC_FLOW_RATE].mean()
-pu.pretty_print("Volumetric Flow Rate", volumetric_flow_rate, "m^3/t")
+pu.pretty_print("Volumetric Flow Rate", volumetric_flow_rate, "m^3/s")
 
 df.to_csv("csv/volumetric_flow_rate.csv", index=False)
 
