@@ -44,7 +44,7 @@ pu.pretty_print("Mass Flow Rate", mass_flow_rate, "kg/s")
 
 # Water Velocity: (m/s)
 # v = V̇ / A
-diameter_in_millimeter: float = 1
+diameter_in_millimeter: float = 0.9
 diameter_in_meter: float = diameter_in_millimeter / 1e3
 cross_sectional_area_in_meter: float = math.pi * \
     math.pow(diameter_in_meter / 2, 2)
