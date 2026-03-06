@@ -4,7 +4,7 @@ import print_utils as pu
 import math
 import matplotlib.pyplot as plt  # type: ignore
 
-df = pd.read_csv("raw_water_time.csv")
+df = pd.read_csv("csv/raw_water_time.csv")
 
 
 # region constants
@@ -31,7 +31,7 @@ df = df.drop(df[VOLUMETRIC_FLOW_RATE].idxmin())
 volumetric_flow_rate = df[VOLUMETRIC_FLOW_RATE].mean()
 pu.pretty_print("Volumetric Flow Rate", volumetric_flow_rate, "m^3/t")
 
-df.to_csv("volumetric_flow_rate.csv", index=False)
+df.to_csv("csv/volumetric_flow_rate.csv", index=False)
 
 
 # Mass Flow Rate (kg/s)
@@ -77,7 +77,7 @@ plt.title("Volumetric Flow Rate vs Time")
 plt.grid(True)
 
 # Save plot to file (works in dev containers without GUI)
-plt.savefig("plot_flow_rate_vs_time.png")
+plt.savefig("png/plot_flow_rate_vs_time.png")
 
 plt.close()
 
@@ -96,7 +96,7 @@ plt.xlabel("Volumetric Flow Rate (m³/s)")
 plt.ylabel("Frequency")
 plt.title("Distribution of Volumetric Flow Rates")
 
-plt.savefig("plot_flow_rate_distribution.png")
+plt.savefig("png/plot_flow_rate_distribution.png")
 
 plt.close()
 
@@ -125,7 +125,7 @@ plt.title("Water Gun Volumetric Flow Rate")
 plt.legend()
 plt.grid(True)
 
-plt.savefig("plot_flow_rate_mean.png")
+plt.savefig("png/plot_flow_rate_mean.png")
 
 plt.close()
 
