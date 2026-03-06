@@ -1,21 +1,23 @@
 # This scripts the force of a watergun
-import pandas as pd  # type: ignore
-import print_utils as pu
 import math
 import matplotlib.pyplot as plt  # type: ignore
+import pandas as pd  # type: ignore
+import print_utils as pu
 
 df = pd.read_csv("csv/raw_water_time.csv")
 
 
-# region constants
+# region Constants
 
 CUBIC_METER: str = "cubic_meter"
 VOLUMETRIC_FLOW_RATE: str = "volumetric_flow_rate"
 MILLILITER: str = "milliliter"
 SECONDS: str = "seconds"
+MASS_DENSITY_OF_WATER: int = 1e3
 
 # endregion
 
+# region Calculations
 
 # Volumetric Flow Rate (m^3/t)
 # V̇ = V / t
@@ -36,7 +38,6 @@ df.to_csv("csv/volumetric_flow_rate.csv", index=False)
 
 # Mass Flow Rate (kg/s)
 # ṁ = ρ * V̇
-MASS_DENSITY_OF_WATER: int = 1e3
 mass_flow_rate = volumetric_flow_rate * MASS_DENSITY_OF_WATER
 pu.pretty_print("Mass Flow Rate", mass_flow_rate, "kg/s")
 
@@ -57,6 +58,7 @@ pu.pretty_print("Velocity", velocity, "m/s")
 force_in_newton = mass_flow_rate * velocity
 pu.pretty_print("Force", force_in_newton, "Newton")
 
+# endregion
 
 # region Plots
 
