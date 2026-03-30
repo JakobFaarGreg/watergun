@@ -11,11 +11,11 @@ This is a hobby project for creating an automated watergun.
 ## Results
 
 |Measure|Value|Unit|
-|--|--|--|
-|Volumetric Flow Rate|2.564192571552358e-06|m^3/t|
-|Mass Flow Rate|0.002564192571552358|kg/s|
-|Velocity|4.030656027674828|m/s|
-|Force|0.01033537824464653|Newton|
+|---------------------|------------------------|------|
+|Volumetric Flow Rate | 2.564192571552358e-06  |m^3/t |
+|Mass Flow Rate       | 0.002564192571552358   |kg/s  |
+|Velocity             | 12.65124690935818      |m/s   |
+|Force                | 0.03244023334585097    |Newton|
 
 ## Calculations for the force exerted by a watergun
 

@@ -14,6 +14,7 @@ VOLUMETRIC_FLOW_RATE: str = "volumetric_flow_rate"
 MILLILITER: str = "milliliter"
 SECONDS: str = "seconds"
 MASS_DENSITY_OF_WATER: int = 1e3
+INCH_TO_CENTIMETER_RATIO: float = 2.54
 
 # endregion
 
@@ -44,8 +45,8 @@ pu.pretty_print("Mass Flow Rate", mass_flow_rate, "kg/s")
 
 # Water Velocity: (m/s)
 # v = V̇ / A
-diameter_in_millimeter: float = 0.9
-diameter_in_meter: float = diameter_in_millimeter / 1e3
+diameter_in_inches: float = 0.02
+diameter_in_meter: float = (diameter_in_inches * INCH_TO_CENTIMETER_RATIO) / 1e2
 cross_sectional_area_in_meter: float = math.pi * \
     math.pow(diameter_in_meter / 2, 2)
 
