@@ -1,7 +1,7 @@
 # This scripts the force of a watergun
 import math
-import matplotlib.pyplot as plt  # type: ignore
-import pandas as pd  # type: ignore
+import matplotlib.pyplot as plt
+import pandas as pd
 import print_utils as pu
 
 df = pd.read_csv("csv/raw_water_time.csv")
@@ -20,7 +20,7 @@ INCH_TO_CENTIMETER_RATIO: float = 2.54
 
 # region Calculations
 
-# Volumetric Flow Rate (m^3/t)
+# Volumetric Flow Rate (m^3/s)
 # V̇ = V / t
 df[CUBIC_METER] = df[MILLILITER] * 1e-6
 df[VOLUMETRIC_FLOW_RATE] = df[CUBIC_METER] / df[SECONDS]
