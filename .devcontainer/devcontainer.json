@@ -3,5 +3,15 @@
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.analysis.extraPaths": [
+                    "/usr/local/lib/python3.12/site-packages"
+                ],
+                "python.terminal.useEnvFile": true
+            }
+        }
     }
 }
