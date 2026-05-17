@@ -36,6 +36,8 @@ pu.pretty_print("Volumetric Flow Rate", volumetric_flow_rate, "m^3/s")
 
 df.to_csv("csv/volumetric_flow_rate.csv", index=False)
 
+print(f"Liter/s: {1e3 * volumetric_flow_rate}")
+print(f"Liter/minute: {(1e3 * volumetric_flow_rate)*60}")
 
 # Mass Flow Rate (kg/s)
 # ṁ = ρ * V̇
