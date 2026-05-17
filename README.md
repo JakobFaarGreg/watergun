@@ -6,7 +6,7 @@ This is a hobby project for creating an automated watergun.
 
 1. Install docker
 2. Open the devcontainer in vscode
-3. Run `python app.py`
+3. Run `python calculator/app.py` or `python classifier/app.py`
 
 ## Results
 
