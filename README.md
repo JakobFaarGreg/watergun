@@ -10,15 +10,15 @@ This is a hobby project for creating an automated watergun.
 
 ## Results
 
-|Measure|Value|Unit|
-|---------------------|------------------------|------|
-|Volumetric Flow Rate | 2.564192571552358e-06  |m^3/s |
-|Mass Flow Rate       | 0.002564192571552358   |kg/s  |
-|Velocity             | 12.65124690935818      |m/s   |
-|Force                | 0.03244023334585097    |Newton|
+|Measure              |Value                   |Unit    |
+|---------------------|------------------------|--------|
+|Volumetric Flow Rate | `2.564192571552358e-06`|`m^3/s` |
+|Mass Flow Rate       | `0.002564192571552358` |`kg/s`  |
+|Velocity             | `12.65124690935818`    |`m/s`   |
+|Force                | `0.03244023334585097`  |`Newton`|
 
 ## Calculations for the force exerted by a watergun
 
-![volume/time datapoints for reference water jet](/png/plot_flow_rate_vs_time.png)
-![datapoints plotted as a histogram to show distribution](/png/plot_flow_rate_distribution.png)
-![volume/time datapoints plotted with mean](/png/plot_flow_rate_mean.png)
+![volume/time datapoints for reference water jet](/png/plots/plot_flow_rate_vs_time.png)
+![datapoints plotted as a histogram to show distribution](/png/plots/plot_flow_rate_distribution.png)
+![volume/time datapoints plotted with mean](/png/plots/plot_flow_rate_mean.png)

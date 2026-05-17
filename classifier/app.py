@@ -7,8 +7,8 @@ model_id = "chriamue/bird-species-classifier"
 processor = AutoImageProcessor.from_pretrained(model_id)
 model = AutoModelForImageClassification.from_pretrained(model_id)
 
-#image = Image.open("/workspaces/watergun/20260319_173350.jpg")
-image = Image.open("/workspaces/watergun/20260325_063841.jpg")
+#image = Image.open("/workspaces/watergun/png/doves/20260319_173350.jpg")
+image = Image.open("/workspaces/watergun/png/doves/20260325_063841.jpg")
 
 inputs = processor(images=image, return_tensors="pt")
 
