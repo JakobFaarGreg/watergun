@@ -82,7 +82,7 @@ plt.title("Volumetric Flow Rate vs Time")
 plt.grid(True)
 
 # Save plot to file (works in dev containers without GUI)
-plt.savefig("/workspaces/watergun/png/plots/plot_flow_rate_vs_time.png")
+plt.savefig("/workspaces/watergun/img/plots/plot_flow_rate_vs_time.png")
 
 plt.close()
 
@@ -101,7 +101,7 @@ plt.xlabel("Volumetric Flow Rate (m³/s)")
 plt.ylabel("Frequency")
 plt.title("Distribution of Volumetric Flow Rates")
 
-plt.savefig("/workspaces/watergun/png/plots/plot_flow_rate_distribution.png")
+plt.savefig("/workspaces/watergun/img/plots/plot_flow_rate_distribution.png")
 
 plt.close()
 
@@ -130,7 +130,7 @@ plt.title("Water Gun Volumetric Flow Rate")
 plt.legend()
 plt.grid(True)
 
-plt.savefig("/workspaces/watergun/png/plots/plot_flow_rate_mean.png")
+plt.savefig("/workspaces/watergun/img/plots/plot_flow_rate_mean.png")
 
 plt.close()
 

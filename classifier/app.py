@@ -13,7 +13,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 # Get all images from the directory
-image_dir = Path("/workspace/png/doves")
+image_dir = Path("/workspace/img/doves")
 images = sorted(image_dir.glob("*.jpg"))
 
 if args.index < 0 or args.index >= len(images):
