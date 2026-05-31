@@ -1,9 +1,16 @@
 {
     "name": "Python development",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".."
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "runServices": [
+        "mediamtx"
+    ],
+    "forwardPorts": [
+        8889,
+        8554,
+        8189
+    ],
     "customizations": {
         "vscode": {
             "settings": {

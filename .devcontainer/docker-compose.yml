@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: mediamtx
+
+    ports:
+      - "8554:8554"        # RTSP
+      - "8889:8889"        # Web UI
+      - "8189:8189"        # metrics/api
+      - "8888:8888/udp"    # MPEG-TS ingest
+
+      - "8189:8189/udp"
+      - "50000-50100:50000-50100/udp"
+
+    volumes:
+      - ../mediamtx.yml:/mediamtx.yml
+
+    command: /mediamtx.yml
+
+    restart: unless-stopped

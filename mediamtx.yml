@@ -1,0 +1,5 @@
+logLevel: debug
+
+paths:
+  cam:
+    source: udp://0.0.0.0:8888
