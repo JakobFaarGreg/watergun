@@ -7,9 +7,10 @@ This is a hobby project for creating an automated watergun.
 1. Install docker
 2. Open the devcontainer in vscode
 3. Run 
-  - a. The calculation app: `python calculator/app.py` or `python classifier/app.py`
-  - b. The classifier: `python classifier/app.py <IMAGE_INDEX>` (where IMAGE_INDEX is the 0-indexed ordering in `img/doves`)
-  - c. The browser to inspect the camera feed at `localhost:8889/cam`
+  a. The calculation app: `python calculator/app.py` or `python classifier/app.py`
+  b. The classifier: `python classifier/app.py <IMAGE_INDEX>` (where IMAGE_INDEX is the 0-indexed ordering in `img/doves`)
+  c. The browser to inspect the camera feed at `localhost:8889/cam`
+    - For inspecting the camera feed, ensure the camere is running and publishing to the correct port.
 
 ## Results
 
