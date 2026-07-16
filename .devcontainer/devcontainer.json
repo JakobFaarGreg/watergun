@@ -4,9 +4,10 @@
     "service": "app",
     "workspaceFolder": "/workspace",
     "runServices": [
-        "mediamtx"
+        "mediamtx",
+        "imageextractor"
     ],
-    "forwardPorts": [
+    "forwardPorts": [  
         8889,
         8554,
         8189

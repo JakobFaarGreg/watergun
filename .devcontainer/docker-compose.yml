@@ -26,3 +26,14 @@ services:
     command: /mediamtx.yml
 
     restart: unless-stopped
+
+  imageextractor:
+    image: linuxserver/ffmpeg:latest
+    depends_on:
+      - mediamtx
+    restart: unless-stopped
+
+    volumes:
+      - ../img/snapshots:/img/snapshots
+
+    command: -rtsp_transport tcp -i rtsp://mediamtx:8554/cam -vf fps=1/60 -update 1 -y /img/snapshots/latest.jpg

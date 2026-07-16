@@ -4,46 +4,50 @@ import torch
 from pathlib import Path
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "index",
-    type=int,
-    help="Index of the image to classify"
-)
-args = parser.parse_args()
-
-# Get all images from the directory
-image_dir = Path("/workspace/img/doves")
-images = sorted(image_dir.glob("*.jpg"))
-
-if args.index < 0 or args.index >= len(images):
-    raise IndexError(
-        f"Image index {args.index} is out of range. "
-        f"There are {len(images)} images."
+def classifyImage():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "index",
+        type=int,
+        help="Index of the image to classify"
     )
+    args = parser.parse_args()
 
-image_path = images[args.index]
+    # Get all images from the directory
+    image_dir = Path("/workspace/img/doves")
+    images = sorted(image_dir.glob("*.jpg"))
 
-print(f"Using image #{args.index}: {image_path}")
+    if args.index < 0 or args.index >= len(images):
+        raise IndexError(
+            f"Image index {args.index} is out of range. "
+            f"There are {len(images)} images."
+        )
 
-model_id = "chriamue/bird-species-classifier"
+    image_path = images[args.index]
 
-processor = AutoImageProcessor.from_pretrained(model_id)
-model = AutoModelForImageClassification.from_pretrained(model_id)
+    print(f"Using image #{args.index}: {image_path}")
 
-image = Image.open(image_path)
+    model_id = "chriamue/bird-species-classifier"
 
-inputs = processor(images=image, return_tensors="pt")
+    processor = AutoImageProcessor.from_pretrained(model_id)
+    model = AutoModelForImageClassification.from_pretrained(model_id)
 
-with torch.no_grad():
-    outputs = model(**inputs)
+    image = Image.open(image_path)
 
-logits = outputs.logits
-probs = torch.nn.functional.softmax(logits, dim=-1)[0]
-top5_probs, top5_ids = torch.topk(probs, 5)
+    inputs = processor(images=image, return_tensors="pt")
 
-print("Top 5 predictions:")
-for score, class_id in zip(top5_probs, top5_ids):
-    class_id = class_id.item()
-    label = model.config.id2label[class_id]
-    print(f"{class_id:3d}: {label:30s} {score.item():.2%}")
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+    logits = outputs.logits
+    probs = torch.nn.functional.softmax(logits, dim=-1)[0]
+    top5_probs, top5_ids = torch.topk(probs, 5)
+
+    print("Top 5 predictions:")
+    for score, class_id in zip(top5_probs, top5_ids):
+        class_id = class_id.item()
+        label = model.config.id2label[class_id]
+        print(f"{class_id:3d}: {label:30s} {score.item():.2%}")
+
+if __name__ == "__main__":
+    classifyImage()
