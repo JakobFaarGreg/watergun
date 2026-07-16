@@ -4,28 +4,25 @@ import torch
 from pathlib import Path
 import argparse
 
-def classifyImage():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "index",
-        type=int,
-        help="Index of the image to classify"
-    )
-    args = parser.parse_args()
+def classifyImage(image: int | str | Path):
+    if isinstance(image, int):
+        image_dir = Path("/workspace/img/doves")
+        images = sorted(image_dir.glob("*.jpg"))
 
-    # Get all images from the directory
-    image_dir = Path("/workspace/img/doves")
-    images = sorted(image_dir.glob("*.jpg"))
+        if image < 0 or image >= len(images):
+            raise IndexError(
+                f"Image index {image} is out of range. "
+                f"There are {len(images)} images."
+            )
 
-    if args.index < 0 or args.index >= len(images):
-        raise IndexError(
-            f"Image index {args.index} is out of range. "
-            f"There are {len(images)} images."
-        )
+        image_path = images[image]
 
-    image_path = images[args.index]
+    else:
+        image_path = Path(image)
+        if not image_path.exists():
+            raise FileNotFoundError(image_path)
 
-    print(f"Using image #{args.index}: {image_path}")
+    print(f"Using image: {image_path}")
 
     model_id = "chriamue/bird-species-classifier"
 
@@ -33,7 +30,6 @@ def classifyImage():
     model = AutoModelForImageClassification.from_pretrained(model_id)
 
     image = Image.open(image_path)
-
     inputs = processor(images=image, return_tensors="pt")
 
     with torch.no_grad():
@@ -50,4 +46,8 @@ def classifyImage():
         print(f"{class_id:3d}: {label:30s} {score.item():.2%}")
 
 if __name__ == "__main__":
-    classifyImage()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("index", type=int)
+    args = parser.parse_args()
+
+    classifyImage(args.index)
